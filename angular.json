@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "gdpr-guard-angular-binding": {
+    "ng-gpdr-guard": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/gdpr-guard-angular-binding",
+            "outputPath": "dist/ng-gpdr-guard",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "gdpr-guard-angular-binding:build"
+            "browserTarget": "ng-gpdr-guard:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "gdpr-guard-angular-binding:build:production"
+              "browserTarget": "ng-gpdr-guard:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gdpr-guard-angular-binding:build"
+            "browserTarget": "ng-gpdr-guard:build"
           }
         },
         "test": {
@@ -111,15 +111,50 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "gdpr-guard-angular-binding:serve"
+            "devServerTarget": "ng-gpdr-guard:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "gdpr-guard-angular-binding:serve:production"
+              "devServerTarget": "ng-gpdr-guard:serve:production"
             }
           }
         }
       }
+    },
+    "gpdr-guard": {
+      "projectType": "library",
+      "root": "projects/gpdr-guard",
+      "sourceRoot": "projects/gpdr-guard/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/gpdr-guard/tsconfig.lib.json",
+            "project": "projects/gpdr-guard/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gpdr-guard/src/test.ts",
+            "tsConfig": "projects/gpdr-guard/tsconfig.spec.json",
+            "karmaConfig": "projects/gpdr-guard/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gpdr-guard/tsconfig.lib.json",
+              "projects/gpdr-guard/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
-  "defaultProject": "gdpr-guard-angular-binding"
+  "defaultProject": "ng-gpdr-guard"
 }

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'gdpr-guard-angular-binding'`, () => {
+  it(`should have as title 'ng-gpdr-guard'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('gdpr-guard-angular-binding');
+    expect(app.title).toEqual('ng-gpdr-guard');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('gdpr-guard-angular-binding app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('ng-gpdr-guard app is running!');
   });
 });

@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('gdpr-guard-angular-binding app is running!');
+    expect(page.getTitleText()).toEqual('ng-gpdr-guard app is running!');
   });
 
   afterEach(async () => {

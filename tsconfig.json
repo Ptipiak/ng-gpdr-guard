@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "gpdr-guard": [
+        "dist/gpdr-guard"
+      ],
+      "gpdr-guard/*": [
+        "dist/gpdr-guard/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

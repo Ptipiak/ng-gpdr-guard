@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'gdpr-guard-angular-binding';
+  title = 'ng-gpdr-guard';
 }
