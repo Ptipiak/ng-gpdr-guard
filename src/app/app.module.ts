@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GpdrGuardComponent } from 'gpdr-guard'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GpdrGuardComponent
   ],
   imports: [
     BrowserModule,
