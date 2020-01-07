@@ -1,2 +1,2 @@
-# gpdr-guard-angular-binding
-Implementaiton of gpdr-guard from @Voltra
+# ng-gpdr-guard
+Implementaiton of gpdr-guard from @Voltra for Angular
