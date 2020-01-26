@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GuardComponent} from './visual/components';
+import { GuardComponent, ManagerComponent} from './visual/components';
 
 @Component({
   selector: 'lib-gdpr-guard',
@@ -8,12 +8,12 @@ import { GuardComponent} from './visual/components';
 })
 export class GdprGuardComponent implements OnInit {
 
-  @Input() guard: GuardComponent; 
+  @Input() manager: ManagerComponent; 
 
   constructor() { }
 
   ngOnInit() {
-    this.guard = new GuardComponent()
+    this.manager = new ManagerComponent()
   }
 
 }
