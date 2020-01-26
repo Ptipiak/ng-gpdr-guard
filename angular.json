@@ -120,41 +120,7 @@
           }
         }
       }
-    },
-    "gpdr-guard": {
-      "projectType": "library",
-      "root": "projects/gpdr-guard",
-      "sourceRoot": "projects/gpdr-guard/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/gpdr-guard/tsconfig.lib.json",
-            "project": "projects/gpdr-guard/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/gpdr-guard/src/test.ts",
-            "tsConfig": "projects/gpdr-guard/tsconfig.spec.json",
-            "karmaConfig": "projects/gpdr-guard/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/gpdr-guard/tsconfig.lib.json",
-              "projects/gpdr-guard/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    }},
+    }
+  },
   "defaultProject": "ng-gpdr-guard"
 }

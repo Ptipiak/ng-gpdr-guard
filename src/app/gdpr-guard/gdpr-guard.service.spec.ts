@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GpdrGuardService } from './gpdr-guard.service';
+import { GpdrGuardService } from './gdpr-guard.service';
 
 describe('GpdrGuardService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GpdrGuardComponent } from './gpdr-guard.component';
+import { GdprGuardComponent } from './gdpr-guard.component';
 
-describe('GpdrGuardComponent', () => {
-  let component: GpdrGuardComponent;
-  let fixture: ComponentFixture<GpdrGuardComponent>;
+describe('GdprGuardComponent', () => {
+  let component: GdprGuardComponent;
+  let fixture: ComponentFixture<GdprGuardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GpdrGuardComponent ]
+      declarations: [ GdprGuardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GpdrGuardComponent);
+    fixture = TestBed.createComponent(GdprGuardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

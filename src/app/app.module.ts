@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GpdrGuardComponent } from 'gpdr-guard'
+import { GdprGuardComponent } from './gdpr-guard/gdpr-guard.component'
+import { GuardComponent } from './gdpr-guard/visual/components/index'
 
 @NgModule({
   declarations: [
-    AppComponent,
-    GpdrGuardComponent
+    AppComponent,    
+    GdprGuardComponent,
+    GuardComponent
   ],
   imports: [
     BrowserModule,
