@@ -1,8 +1,2 @@
-<p>
-    This is a manager component.
-</p>
-<guard-input icon="envelope">   
-
-    <input inputRef type="email" placeholder="Email">
-
-</guard-input> 
+<p>This is a manager component.</p>
+<group *ngFor="let group of groups" [group]="group"></group>

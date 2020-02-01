@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { GdprManagerRaw, GdprGuardGroupRaw, GdprGuardGroup } from '../../model/index';
 
 @Component({
     selector: 'manager',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['../../gdpr-guard.component.css'],
 })
 export class ManagerComponent implements OnInit {
-    ngOnInit(): void {
-        console.log("Manager created.")
+
+    @Input() manager: GdprManagerRaw;
+    @Input() groups: GdprGuardGroupRaw[] = [];
+
+    ngOnInit(): void {                
+        this.groups = this.manager.groups    
     }
 
 }

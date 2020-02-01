@@ -1,5 +1,5 @@
 import { GdprGuardGroup, GdprStorage, GdprManager} from '../model/index'
-import { GdprGroupBuilder } from '../builders/index'
+import { GdprGroupBuilder } from './index'
 
 /**
  * Builder for a GdprManager

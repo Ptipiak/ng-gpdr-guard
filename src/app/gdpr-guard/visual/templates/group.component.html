@@ -1,0 +1,5 @@
+<div class="group">
+    <label>{{ group.name }}</label>
+    <p>{{ group.description }}</p>
+    <guard *ngFor="let guard of guards" [guard]="guard"></guard>
+</div>

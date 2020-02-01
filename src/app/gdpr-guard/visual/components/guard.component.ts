@@ -1,31 +1,21 @@
 import { Component, OnInit, Input, ContentChild, HostBinding } from '@angular/core';
-import { InputRefDirective } from '../../directive/focused.directive'
+import { FocusedDirective } from '../../directive/focused.directive';
+import { GdprGuard } from '../../model/GdprGuard';
 
 @Component({
-    selector: 'guard-input',
+    selector: 'guard',
     templateUrl: '../templates/guard.component.html',
     styleUrls: ['../../gdpr-guard.component.css'],
 })
 export class GuardComponent implements OnInit {
-    ngOnInit(): void {
-        console.log("Guard created.")
+            
+    @Input() guard: GdprGuard;
+
+    ngOnInit(): void {                
+        console.log(this.guard)
     }
-
-    @Input() icon: string;
-
-    @ContentChild(InputRefDirective, {static: false})input: InputRefDirective;
-
-    @HostBinding("class.focus")
-    get focus() {
-        return this.input ? this.input.focus : false;
+    
+    switch = () => {
+        this.guard.toggle()        
     }
-
-    get  classes() {
-        const cssClasses = {
-        fa: true
-        };
-        cssClasses['fa-' + this.icon] = true;
-        return cssClasses;
-    }
-
 }
