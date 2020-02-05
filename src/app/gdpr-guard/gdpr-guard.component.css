@@ -3,11 +3,9 @@ h1 {
 }
 
 .group {
-    border-width: 2px;
-    border-color: black;    
+    margin-left: 10%;
 }
 
 .guard {
-    border-width: 2px;
-    border-color: black;    
+    margin-left: 20%;
 }

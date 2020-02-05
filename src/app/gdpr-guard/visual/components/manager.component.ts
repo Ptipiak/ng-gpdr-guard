@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GdprManagerRaw, GdprGuardGroupRaw, GdprGuardGroup } from '../../model/index';
+import { GdprManager, GdprGuardGroup } from 'gdpr-guard'
+import { GdprManagerRaw } from 'gdpr-guard/dist/GdprManager';
+import { GdprGuardGroupRaw } from 'gdpr-guard/dist/GdprGuardGroup';
 
 @Component({
     selector: 'manager',
@@ -8,11 +10,14 @@ import { GdprManagerRaw, GdprGuardGroupRaw, GdprGuardGroup } from '../../model/i
 })
 export class ManagerComponent implements OnInit {
 
-    @Input() manager: GdprManagerRaw;
-    @Input() groups: GdprGuardGroupRaw[] = [];
+    @Input() manager: GdprManager;    
+    @Input() groups: GdprGuardGroup[] = [];
+    
 
-    ngOnInit(): void {                
-        this.groups = this.manager.groups    
+    ngOnInit(): void {
+        this.manager.raw().groups.forEach(group => {
+            this.groups.push(this.manager.getGroup(group.name))
+        });   
     }
 
 }

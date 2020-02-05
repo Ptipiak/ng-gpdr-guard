@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GdprManagerRaw, GdprStorage } from './model/index';
-import { GdprManagerBuilder } from './builders/index'
+import { GdprManagerRaw } from 'gdpr-guard/dist/GdprManager'
+import { GdprManagerBuilder, GdprStorage, GdprManager} from 'gdpr-guard'
 
 @Component({
   selector: 'lib-gdpr-guard',
@@ -9,7 +9,8 @@ import { GdprManagerBuilder } from './builders/index'
 })
 export class GdprGuardComponent implements OnInit {
 
-  @Input() manager: GdprManagerRaw;
+  @Input() manager: GdprManager;
+  @Input() managerRaw: GdprManagerRaw;
 
   constructor() {    
   }
@@ -26,18 +27,34 @@ export class GdprGuardComponent implements OnInit {
         .endGuard()
     .endGroup()
     .startGroup(GdprStorage.Cookie, "Advertisement", "Tracking-based avertisement informations")
-        .startGroup(GdprStorage.Cookie, "Advertisement : Local", "Sitewide advertisement informations")
-          .startGuard()
-            .withName("my guard")
-            .withDescription("This is a test guard")
-            .storedIn(GdprStorage.LocalStorage)
-          .endGuard()
-        .endGroup()
-        .startGroup(GdprStorage.Cookie, "Advertisement : 3rd-party", "3rd-party advertisement informations")
-            // [...]
-        .endGroup()
+      .startGroup(GdprStorage.Cookie, "Advertisement : Local", "Sitewide advertisement informations")
+        .startGuard()
+          .withName("my guard")
+          .withDescription("This is a test guard")
+          .storedIn(GdprStorage.LocalStorage)
+        .endGuard()
+        .startGuard()
+          .withName("my second guard")
+          .withDescription("This is a test guard")
+          .storedIn(GdprStorage.LocalStorage)
+        .endGuard()
+        .startGuard()
+          .withName("my third guard")
+          .withDescription("This is a test guard")
+          .storedIn(GdprStorage.LocalStorage)
+        .endGuard()
+      .endGroup()
+      .startGroup(GdprStorage.Cookie, "Advertisement : 3rd-party", "my group within a group")
+        .startGuard()
+          .withName("my guard withing a group within a grou guard")
+          .withDescription("Wouah, much group, such guard, lots of data protection")
+          .storedIn(GdprStorage.LocalStorage)
+        .endGuard()
+      .endGroup()
+    .endGroup()    
     .build();
-    this.manager = manager.raw();
-  }
+    this.manager = manager    
+    this.managerRaw = manager.raw()
+  }  
 
 }
