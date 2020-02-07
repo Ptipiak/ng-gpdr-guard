@@ -11,12 +11,12 @@ import { GdprGuardGroupRaw } from 'gdpr-guard/dist/GdprGuardGroup';
 export class ManagerComponent implements OnInit {
 
     @Input() manager: GdprManager;    
-    @Input() groups: GdprGuardGroup[] = [];
+    guards: GdprGuardGroup[] = [];
     
 
     ngOnInit(): void {
         this.manager.raw().groups.forEach(group => {
-            this.groups.push(this.manager.getGroup(group.name))
+            this.guards.push(this.manager.getGroup(group.name))
         });   
     }
 

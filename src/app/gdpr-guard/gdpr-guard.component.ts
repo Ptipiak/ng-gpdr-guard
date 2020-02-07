@@ -9,8 +9,7 @@ import { GdprManagerBuilder, GdprStorage, GdprManager} from 'gdpr-guard'
 })
 export class GdprGuardComponent implements OnInit {
 
-  @Input() manager: GdprManager;
-  @Input() managerRaw: GdprManagerRaw;
+  manager: GdprManager;  
 
   constructor() {    
   }
@@ -26,8 +25,8 @@ export class GdprGuardComponent implements OnInit {
             .storedIn(GdprStorage.LocalStorage)
         .endGuard()
     .endGroup()
-    .startGroup(GdprStorage.Cookie, "Advertisement", "Tracking-based avertisement informations")
-      .startGroup(GdprStorage.Cookie, "Advertisement : Local", "Sitewide advertisement informations")
+    .startGroup(GdprStorage.Cookie, "Main group", "Tracking-based avertisement informations")
+      .startGroup(GdprStorage.Cookie, "Test number 1", "Sitewide advertisement informations")
         .startGuard()
           .withName("my guard")
           .withDescription("This is a test guard")
@@ -44,17 +43,18 @@ export class GdprGuardComponent implements OnInit {
           .storedIn(GdprStorage.LocalStorage)
         .endGuard()
       .endGroup()
-      .startGroup(GdprStorage.Cookie, "Advertisement : 3rd-party", "my group within a group")
-        .startGuard()
-          .withName("my guard withing a group within a grou guard")
-          .withDescription("Wouah, much group, such guard, lots of data protection")
-          .storedIn(GdprStorage.LocalStorage)
-        .endGuard()
+      .startGroup(GdprStorage.Cookie, "Test number 2", "my group within a group")        
+        .startGroup(GdprStorage.Cookie, "Test number 3", "group-ception")
+          .startGuard()
+            .withName("my guard withing a group within a group guard")
+            .withDescription("Wouah, much group, such guard, lots of data protection")
+            .storedIn(GdprStorage.LocalStorage)
+          .endGuard()
+        .endGroup()
       .endGroup()
     .endGroup()    
     .build();
-    this.manager = manager    
-    this.managerRaw = manager.raw()
+    this.manager = manager
   }  
 
 }

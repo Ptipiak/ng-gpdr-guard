@@ -1,6 +1,6 @@
-<div class="group">
-    <label>Name: {{ group.name }}</label>
-    <p>Description: {{ group.description }}</p>
-    <button type="checkbox" on-click="group.toggle()">{{ group.enabled }}</button>    
-    <group *ngFor="let guard of guards" [group]="guard"></group>
+<div class="guard">
+    <label>Name: {{ guard.name }}</label>
+    <p>Description: {{ guard.description }}</p>
+    <button type="checkbox" on-click="group.toggle()">{{ guard.enabled }}</button>    
+    <guard *ngFor="let guard of guards" [guard]="guard"></guard>
 </div>

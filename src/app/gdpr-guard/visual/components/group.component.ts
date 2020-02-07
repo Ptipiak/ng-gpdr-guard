@@ -5,21 +5,21 @@ import { GdprGuardRaw } from 'gdpr-guard/dist/GdprGuard';
 import { GdprGuardGroupRaw } from 'gdpr-guard/dist/GdprGuardGroup';
 
 @Component({
-    selector: 'group',
+    selector: 'guard',
     templateUrl: '../templates/group.component.html',
     styleUrls: ['../../gdpr-guard.component.css'],
 })
 export class GroupComponent implements OnInit {
         
-    @Input() group: GdprGuardGroup;    
-    @Input() guards:  GdprGuard[] = [];
-    private rawGroup: GdprGuardGroupRaw;
+    @Input() guard: GdprGuardGroup;    
+    guards:  GdprGuard[] = [];
+    private rawGuard: GdprGuardGroupRaw;
 
     ngOnInit(): void {
-        this.rawGroup = this.group.raw()
-        if(this.rawGroup.guards) {
-            this.rawGroup.guards.forEach(guard => {
-                this.guards.push(this.group.getGuard(guard.name));
+        this.rawGuard = this.guard.raw()
+        if(this.rawGuard.guards) {
+            this.rawGuard.guards.forEach(el => {
+                this.guards.push(this.guard.getGuard(el.name));
             });            
         }     
     }
